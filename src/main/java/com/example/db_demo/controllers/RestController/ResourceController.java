@@ -1,4 +1,4 @@
-package com.example.db_demo.RestController;
+package com.example.db_demo.controllers.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.db_demo.RestController.Resource.Greeting;
-import com.example.db_demo.RestController.Resource.Test;
+import com.example.db_demo.controllers.RestController.Resource.Greeting;
+import com.example.db_demo.controllers.RestController.Resource.Test;
 
 @RestController
 public class ResourceController {

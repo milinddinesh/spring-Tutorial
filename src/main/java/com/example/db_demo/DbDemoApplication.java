@@ -1,22 +1,30 @@
 package com.example.db_demo;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import com.example.db_demo.storage.StorageProperties;
+
+import com.example.db_demo.storage.StorageService;
 
 @SpringBootApplication
-@RestController
+@EnableConfigurationProperties(StorageProperties.class)
 public class DbDemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DbDemoApplication.class, args);
 	}
-
-	@GetMapping(path = "/hello")
-	public String greeting(@RequestParam (defaultValue = "world")String text ){
-		return String.format("Hello %s",text);
+	@Bean
+	CommandLineRunner init (StorageService storageService){
+		return (args) -> {
+			storageService.deleteAll();
+			storageService.init();
+		};
 	}
 
 
