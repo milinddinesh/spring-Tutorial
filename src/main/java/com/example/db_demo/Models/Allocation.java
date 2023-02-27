@@ -7,8 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import com.example.db_demo.Models.Courses;
-import com.example.db_demo.Models.Faculty;
+
 
 @Entity
 public class Allocation {
