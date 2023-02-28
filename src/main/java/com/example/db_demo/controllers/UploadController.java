@@ -1,6 +1,6 @@
 package com.example.db_demo.controllers;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.db_demo.storage.StorageService;
 import com.example.db_demo.Models.FileInfo;
@@ -65,13 +63,6 @@ public class UploadController {
         Resource file = storageService.load(filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachement; filename=\"" + file.getFilename() + "\"").body(file);
     }
-
-    // @PostMapping("/Upload")
-    // public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-    //     storageService.store(file);
-    //     redirectAttributes.addFlashAttribute("message","File uploaded successfully!"+file.getOriginalFilename());
-    //     return "redirect:/";
-    // }
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file){
