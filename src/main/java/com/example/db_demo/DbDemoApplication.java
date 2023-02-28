@@ -10,15 +10,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import com.example.db_demo.storage.StorageServiceImpl;
 
+import jakarta.annotation.Resource;
+
 import com.example.db_demo.storage.StorageService;
 
 @SpringBootApplication
-@EnableConfigurationProperties(StorageServiceImpl.class)
+// @EnableConfigurationProperties(StorageServiceImpl.class)
 public class DbDemoApplication {
+
+	@Resource
+	StorageService storageService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DbDemoApplication.class, args);
 	}
+
 	@Bean
 	CommandLineRunner init (StorageService storageService){
 		return (args) -> {
