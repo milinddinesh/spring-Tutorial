@@ -12,4 +12,5 @@ If you want to run the application on your device , simply clone the repo to a f
 You can also build the application to a jar file with the command `./gradlew build` and run the jar file with the command
 `java -jar build/libs/db_demo-0.0.1-SNAPSHOT.jar `
 
+* the name of the jar file may vary . You can check the name of the jar file under /bin/libs
 
